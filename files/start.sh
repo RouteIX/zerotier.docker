@@ -5,6 +5,8 @@ supervisord -c /etc/supervisor/supervisord.conf
 
 [ ! -z $NETWORK_ID ] && { sleep 5; zerotier-cli join $NETWORK_ID || exit 1; }
 
+[ ! -z $NETWORK_REGIONAL ] && { sleep 5; zerotier-cli join $NETWORK_REGIONAL || exit 1; }
+
 # waiting for Zerotier IP
 # why 2? because you have an ipv6 and an a ipv4 address by default if everything is ok
 IP_OK=0
